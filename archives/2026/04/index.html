@@ -1,630 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>Archives: 2026/4 - Hexo</title><link rel="manifest" href="/english-vocabulary/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Hexo"><meta property="og:url" content="http://example.com/"><meta property="og:site_name" content="Hexo"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/english-vocabulary/img/og_image.png"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/english-vocabulary/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com"},"headline":"Hexo","image":["http://example.com/english-vocabulary/img/og_image.png"],"author":{"@type":"Person","name":"John Doe"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.svg"}},"description":""}</script><link rel="icon" href="/english-vocabulary/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/english-vocabulary/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
 
-<title>Archive | Hexo</title>
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
 
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
 
-
-<meta name="author" content="John Doe">
-
-
-<!-- Open Graph -->
-<meta property="og:title" content="Archive">
-<meta property="og:type" content="website">
-<meta property="og:url" content="http://example.com">
-<meta property="og:site_name" content="Hexo">
-
-
-<!-- Canonical -->
-<link rel="canonical" href="http://example.com">
-
-<!-- RSS Feed -->
-
-<link rel="alternate" type="application/atom+xml" title="Hexo" href="/english-vocabulary/atom.xml">
-
-
-<!-- Favicon -->
-<link rel="icon" href="/english-vocabulary/images/favicon.ico">
-
-<!-- Theme CSS -->
-<link rel="stylesheet" href="/english-vocabulary/css/style.css">
-
-
-
-<style>:root { --font-size-base: 15px; }</style>
-
-
-<style>:root { --font-size-code: 14px; }</style>
-
-
-<style>:root { --content-max-width: 720px; }</style>
-
-<script>
-/* FOUC prevention: read localStorage before first paint and set data attrs on <html>.
-   CSS rules below use these attrs to apply correct initial sidebar state.
-   JS removes them after taking over. */
-(function () {
-  try {
-    var w = window.innerWidth;
-    var l = localStorage.getItem('obs-left-open');
-    var r = localStorage.getItem('obs-right-open');
-    if (w <= 768 || l === '0') document.documentElement.setAttribute('data-vx-left', 'closed');
-    if (w > 900  && r === '1') document.documentElement.setAttribute('data-vx-right', 'open');
-    /* Disable transitions during init to prevent chevron animations on load */
-    document.documentElement.setAttribute('data-vx-init', '');
-    /* Collapsed explorer sections + pre-rotate their chevrons */
-    var hidden = [], sectionChevrons = [];
-    for (var i = 0; i < localStorage.length; i++) {
-      var k = localStorage.key(i);
-      if (!k) continue;
-      var v = localStorage.getItem(k);
-      if (k.startsWith('obs-section-') && v === '0') {
-        var sid = k.slice('obs-section-'.length);
-        hidden.push('#nav-' + sid);
-        sectionChevrons.push('.explorer-section-header[data-section="' + sid + '"] .chevron');
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
       }
-    }
-    var css = '';
-    if (hidden.length)          css += hidden.join(',')          + '{display:none}';
-    if (sectionChevrons.length) css += sectionChevrons.join(',') + '{transform:rotate(-90deg)}';
-    if (css) {
-      var st = document.createElement('style');
-      st.id = 'vx-sections-init';
-      st.textContent = css;
-      document.head.appendChild(st);
-    }
-  } catch (_) {}
-}());
-</script>
-<script>window.VAULTEX_CONFIG = { toc: true, tocDepth: 3, postsPerRow: 1, searchXml: '/english-vocabulary/search.xml' };</script>
-
-<meta name="generator" content="Hexo 8.1.1"></head>
-<body class="vaultex-app">
-
-  <!-- Mobile sidebar overlay -->
-  <div class="sidebar-overlay" id="sidebar-overlay"></div>
-
-  <div class="app-container" id="app-container">
-
-    <!-- ======= TAB BAR (full width, never resizes) ======= -->
-    <div class="tab-bar">
-
-      <!-- Sidebar zone: mirrors sidebar width, collapses with it -->
-      <div class="tab-bar-left-spacer" id="tab-bar-left-spacer">
-        <button class="sidebar-toggle-btn btn-icon" id="toggle-left" aria-label="Toggle file explorer" title="Toggle file explorer" data-tooltip-pos="right">
-          <svg class="icon-sidebar-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
-
-          <svg class="icon-sidebar-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path fill="currentColor" stroke="none" d="M9 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h4Z"/><path d="M9 3v18"/></svg>
-
-        </button>
-        <button class="sidebar-view-btn btn-icon" data-tab="folder" aria-label="Files" title="Files">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/><path d="M2 10h20"/></svg>
-
-        </button>
-        <button class="sidebar-view-btn btn-icon" data-tab="search" aria-label="Search" title="Search (Ctrl+Shift+F)">
-          <svg class="sidebar-view-btn-svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
-
-        </button>
-      </div>
-
-      <div class="tab-strip" role="tablist">
-        <div class="tab tab-active" role="tab" aria-selected="true">
-          <span class="tab-title">Archive</span>
-          <a href="/english-vocabulary/" class="tab-close" title="Close" aria-label="Close">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-
-          </a>
-        </div>
-      </div>
-
-      <!-- Toggle lives outside the sidebar zone (always at the content/sidebar boundary) -->
-      <button class="sidebar-toggle-btn btn-icon" id="toggle-right" aria-label="Toggle right panel" title="Toggle right panel" data-tooltip-pos="left">
-        <svg class="icon-sidebar-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
-
-        <svg class="icon-sidebar-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path fill="currentColor" stroke="none" d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4Z"/><path d="M15 3v18"/></svg>
-
-      </button>
-      <!-- Right spacer: mirrors sidebar-right width; contains only tab buttons -->
-      <div class="tab-bar-right-spacer spacer-collapsed" id="tab-bar-right-spacer">
-        
-        <button class="right-tab-btn btn-icon" data-rtab="tags" id="rtab-btn-tags" title="Tags" aria-label="Tags" data-tooltip-pos="left">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.172 2a2 2 0 0 1 1.414.586l6.71 6.71a2.4 2.4 0 0 1 0 3.408l-4.592 4.592a2.4 2.4 0 0 1-3.408 0l-6.71-6.71A2 2 0 0 1 6 9.172V3a1 1 0 0 1 1-1z"/><path d="M2 7v6.172a2 2 0 0 0 .586 1.414l6.71 6.71a2.4 2.4 0 0 0 3.191.193"/><circle cx="10.5" cy="6.5" r=".5" fill="currentColor"/></svg>
-
-        </button>
-      </div>
-    </div>
-
-    <!-- ======= WORKSPACE ROW (sidebars + content, below tab bar) ======= -->
-    <div class="workspace-row">
-
-      <!-- Activity bar (always visible) -->
-      <div class="activity-bar" id="activity-bar">
-        
-
-<button class="activity-btn btn-icon" id="activity-quick-switcher" title="Open quick switcher (Ctrl+O)" aria-label="Open quick switcher (Ctrl+O)" data-tooltip-pos="right">
-  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><circle cx="11.5" cy="14.5" r="2.5"/><path d="M13.3 16.3 15 18"/></svg>
-
-</button>
-
-
-      </div>
-
-      <!-- Left sidebar (file explorer) -->
-      <aside class="sidebar-left" id="sidebar-left" aria-label="File explorer">
-        
-
-<div class="sidebar-left-inner">
-
-  <!-- ============ FOLDER TAB ============ -->
-  <div class="sidebar-tab-content" data-tab="folder">
-
-    <!-- Site identity: logo, title, description -->
-    <div class="sidebar-site-header">
-      <a href="/english-vocabulary/" class="sidebar-site-title" aria-label="Go to homepage">
-        
-        
-        <img src="/english-vocabulary/images/logo.png" class="sidebar-site-logo" width="32" height="32" alt="" aria-hidden="true">
-        
-        <span class="sidebar-site-name">Hexo</span>
-      </a>
-      
-    </div>
-
-    <!-- Explorer action bar -->
-    <div class="explorer-actions">
-      <button class="explorer-action-btn" id="explorer-auto-reveal" title="Auto-reveal current file" aria-label="Auto-reveal current file">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2h18"/><rect width="18" height="12" x="3" y="6" rx="2"/><path d="M3 22h18"/></svg>
-
-      </button>
-      <button class="explorer-action-btn is-expanded" id="explorer-collapse-all" title="Expand all" aria-label="Expand all">
-        <svg class="icon-collapse-svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 20 5-5 5 5"/><path d="m7 4 5 5 5-5"/></svg>
-
-        <svg class="icon-expand-svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
-
-      </button>
-    </div>
-
-    <!-- Navigation (driven by theme.nav_items in _config.yml) -->
-    
-    <div class="explorer-section">
-      <div class="explorer-section-header" data-section="nav">
-        <svg class="chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-
-        <span>Navigation</span>
-      </div>
-      <nav class="nav-tree" id="nav-nav">
-        
-        <a href="/english-vocabulary/" class="nav-item">
-          <svg class="nav-icon-svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-
-          <span class="nav-label">Home</span>
-        </a>
-        
-        <a href="/english-vocabulary/about" class="nav-item">
-          <svg class="nav-icon-svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-
-          <span class="nav-label">About</span>
-        </a>
-        
-        <a href="/english-vocabulary/archives/" class="nav-item active">
-          <svg class="nav-icon-svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
-
-          <span class="nav-label">Archive</span>
-        </a>
-        
-        <a href="/english-vocabulary/atom.xml" class="nav-item">
-          <svg class="nav-icon-svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
-
-          <span class="nav-label">RSS</span>
-        </a>
-        
-      </nav>
-    </div>
-    
-
-    <!-- Categories tree -->
-    
-
-    <!-- Social links -->
-    
-
-  </div><!-- /.sidebar-tab-content[folder] -->
-
-  <!-- ============ SEARCH TAB ============ -->
-  <div class="sidebar-tab-content sidebar-tab-hidden" data-tab="search">
-    <div class="sidebar-search-panel">
-
-      <!-- SearchHeader: rounded input + filter button outside -->
-      <div class="search-input-row">
-        <div class="sidebar-search-box">
-          <svg class="search-icon-svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
-
-          <input
-            type="search"
-            id="search-input"
-            placeholder="Search..."
-            autocomplete="off"
-            spellcheck="false"
-            aria-label="Search notes"
-          >
-          <button class="search-btn-aa" id="search-match-case" title="Match case" aria-label="Match case" aria-pressed="false">Aa</button>
-          <button class="search-btn-clear" id="search-clear" title="Clear search" aria-label="Clear search" hidden>
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" stroke="none"/><path d="m15 9-6 6" fill="none" style="stroke:var(--bg-primary)"/><path d="m9 9 6 6" fill="none" style="stroke:var(--bg-primary)"/></svg>
-
-          </button>
-        </div>
-        <button class="search-btn-filter" id="search-filter-btn" title="Filter options" aria-label="Filter options" aria-pressed="false">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 5H3"/><path d="M12 19H3"/><path d="M14 3v4"/><path d="M16 17v4"/><path d="M21 12h-9"/><path d="M21 19h-5"/><path d="M21 5h-7"/><path d="M8 10v4"/><path d="M8 12H3"/></svg>
-
-        </button>
-      </div>
-
-      <!-- Filter panel (toggled by filter button) -->
-      <div class="search-filter-panel" id="search-filter-panel" hidden>
-        <label class="search-filter-row">
-          <span class="search-filter-label">Collapse results</span>
-          <span class="toggle-wrap">
-            <input type="checkbox" id="filter-collapse-results" class="toggle-input" autocomplete="off">
-            <span class="toggle-track"></span>
-          </span>
-        </label>
-        <label class="search-filter-row">
-          <span class="search-filter-label">Show more context</span>
-          <span class="toggle-wrap">
-            <input type="checkbox" id="filter-more-context" class="toggle-input" autocomplete="off">
-            <span class="toggle-track"></span>
-          </span>
-        </label>
-      </div>
-
-      <!-- SearchToolbar: count + sort (hidden until there are results) -->
-      <div class="search-toolbar" id="search-toolbar" hidden>
-        <span class="search-count-label" id="search-results-count"></span>
-        <div class="dropdown-wrap">
-          <button class="search-sort-btn" id="search-sort-btn" aria-expanded="false" aria-label="Sort results">
-            <span id="search-sort-label">File name (A to Z)</span>
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
-
-          </button>
-          <div class="dropdown dropdown-right" id="search-sort-dropdown" hidden>
-            <button class="dropdown-item active" data-sort="name-asc">
-              <span>File name (A to Z)</span>
-              <svg class="dropdown-check" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-
-            </button>
-            <button class="dropdown-item" data-sort="name-desc">
-              <span>File name (Z to A)</span>
-              <svg class="dropdown-check" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-
-            </button>
-            <div class="dropdown-sep"></div>
-            <button class="dropdown-item" data-sort="modified-desc">
-              <span>Modified time (new to old)</span>
-              <svg class="dropdown-check" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-
-            </button>
-            <button class="dropdown-item" data-sort="modified-asc">
-              <span>Modified time (old to new)</span>
-              <svg class="dropdown-check" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-
-            </button>
-            <div class="dropdown-sep"></div>
-            <button class="dropdown-item" data-sort="created-desc">
-              <span>Created time (new to old)</span>
-              <svg class="dropdown-check" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-
-            </button>
-            <button class="dropdown-item" data-sort="created-asc">
-              <span>Created time (old to new)</span>
-              <svg class="dropdown-check" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Results -->
-      <div class="sidebar-search-results">
-        <div id="search-results" role="list"></div>
-        <div id="search-no-results">
-          <p>No matches found.</p>
-        </div>
-      </div>
-
-    </div>
-  </div><!-- /.sidebar-tab-content[search] -->
-
-  <!-- Vault Footer — persists across folder/search tabs -->
-  <div class="vault vault-footer">
-    <div class="vault-switcher-wrap">
-  <button class="vault-switcher" id="vault-switcher" aria-haspopup="true" aria-expanded="false">
-    <svg class="vault-switcher-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
-
-    <span class="vault-switcher-name">vaultex</span>
-  </button>
-  <div class="vault-dropdown" id="vault-dropdown" hidden>
-    <div class="vault-dropdown-item vault-dropdown-manage vault-dropdown-current">
-      <span>vaultex</span>
-      <svg class="vault-dropdown-check" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-
-    </div>
-    <div class="vault-dropdown-sep"></div>
-    <span class="vault-dropdown-item vault-dropdown-manage" aria-disabled="true">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></svg>
-
-      <span>Manage vaults...</span>
-    </a>
-  </div>
-</div>
-<div class="vault-actions">
-  <button class="vault-btn" id="vault-help-btn" aria-label="Help">
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
-
-  </button>
-</div>
-
-  </div>
-
-</div>
-
-      </aside>
-
-      <!-- Main content column: nav bar + scrollable note view -->
-      <div class="content-col">
-
-        <div class="content-nav-bar">
-          <div class="content-nav-btns">
-            <button class="tab-nav-btn btn-icon" id="nav-back" title="Go back" aria-label="Go back" data-tooltip-pos="right">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-
-            </button>
-            <button class="tab-nav-btn btn-icon" id="nav-forward" title="Go forward" aria-label="Go forward" data-tooltip-pos="right">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-
-            </button>
-          </div>
-          <nav class="content-breadcrumb" aria-label="Breadcrumb">
-            
-
-  
-  <span class="breadcrumb-item breadcrumb-current">Archive</span>
-
-
-          </nav>
-          <div></div>
-        </div>
-
-        <main class="note-view" id="note-view" role="main">
-          
-
-
-
-
-<div class="archive-list">
-  
-  <div class="archive-year-group">
-    <h2 class="archive-year">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
-
-      2026
-      <span class="archive-year-count">1</span>
-    </h2>
-
-    
-    <a href="/english-vocabulary/2026/04/01/hello-world/" class="archive-item">
-      <span class="archive-item-date">Apr 01</span>
-      <span class="archive-item-title">Hello World</span>
-      
-    </a>
-    
-
-  </div>
-  
-</div>
-
-
-
-
-        </main>
-
-      </div><!-- /.content-col -->
-
-      <!-- ======= RIGHT SIDEBAR ======= -->
-      <aside class="sidebar-right collapsed" id="sidebar-right" aria-label="Right panel">
-        
-<div class="sidebar-right-inner">
-
-  <!-- ===== TOC TAB (post / page only) ===== -->
-  
-
-  <!-- ===== TAGS TAB (always) ===== -->
-  <div class="right-tab-content right-tab-hidden" data-rtab="tags">
-
-    <div class="explorer-actions">
-      <div class="dropdown-wrap">
-        <button class="explorer-action-btn" id="tags-sort-btn" title="Change sort order" aria-label="Change sort order" aria-expanded="false">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/><path d="M11 12h4"/><path d="M11 16h7"/><path d="M11 20h10"/></svg>
-
-        </button>
-        <div class="dropdown" id="tags-sort-dropdown" hidden>
-          <button class="dropdown-item active" data-sort="freq-desc">
-            <span>Frequency (high to low)</span>
-            <svg class="dropdown-check" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-
-          </button>
-          <button class="dropdown-item" data-sort="freq-asc">
-            <span>Frequency (low to high)</span>
-            <svg class="dropdown-check" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-
-          </button>
-          <div class="dropdown-sep"></div>
-          <button class="dropdown-item" data-sort="name-asc">
-            <span>Tag name (A to Z)</span>
-            <svg class="dropdown-check" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-
-          </button>
-          <button class="dropdown-item" data-sort="name-desc">
-            <span>Tag name (Z to A)</span>
-            <svg class="dropdown-check" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-
-          </button>
-        </div>
-      </div>
-      <button class="explorer-action-btn" id="tags-search-toggle" title="Show search filter" aria-label="Toggle search" aria-pressed="false">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
-
-      </button>
-    </div>
-
-    <div class="right-tab-actions" id="tags-search-bar" hidden>
-      <div class="sidebar-search-box">
-        <svg class="search-icon-svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
-
-        <input
-          type="text"
-          id="tags-filter-input"
-          placeholder="Search..."
-          autocomplete="off"
-          spellcheck="false"
-          aria-label="Filter tags"
-        >
-      </div>
-    </div>
-
-    <div class="tags-list" id="tags-list">
-      
-    </div>
-
-  </div>
-
-</div>
-
-      </aside>
-
-    </div><!-- /.workspace-row -->
-
-  </div><!-- /.app-container -->
-
-  <div class="hm-backdrop" id="help-modal" hidden role="dialog" aria-modal="true" aria-labelledby="hm-title">
-  <div class="hm-window">
-
-    <!-- Window chrome -->
-    <div class="hm-chrome">
-      <button class="hm-chrome-btn" id="hm-minimize" aria-label="Minimize">&#x2212;</button>
-      <button class="hm-chrome-btn" id="hm-close" aria-label="Close">&#x2715;</button>
-    </div>
-
-    <!-- Hero: gem logo + title -->
-    <div class="hm-hero">
-      <svg class="hm-gem" width="76" height="92" viewBox="0 0 56 68" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <linearGradient id="hm-grad-main" x1="4" y1="4" x2="52" y2="66" gradientUnits="userSpaceOnUse">
-            <stop offset="0%"   stop-color="#cbbcff"/>
-            <stop offset="100%" stop-color="#4a2d8c"/>
-          </linearGradient>
-          <linearGradient id="hm-grad-right" x1="52" y1="4" x2="28" y2="66" gradientUnits="userSpaceOnUse">
-            <stop offset="0%"   stop-color="#a888f8"/>
-            <stop offset="100%" stop-color="#5c3da8"/>
-          </linearGradient>
-        </defs>
-        <!-- Left face -->
-        <path d="M28 66 L4 26 L18 4 L28 16 Z"   fill="url(#hm-grad-main)"/>
-        <!-- Right face -->
-        <path d="M28 66 L52 26 L38 4 L28 16 Z"  fill="url(#hm-grad-right)"/>
-        <!-- Top-left facet -->
-        <path d="M4 26 L18 4 L28 16 Z"           fill="#c4b0ff" opacity="0.55"/>
-        <!-- Top-right facet -->
-        <path d="M52 26 L38 4 L28 16 Z"          fill="#9878e8" opacity="0.6"/>
-        <!-- Top highlight -->
-        <path d="M18 4 L38 4 L28 16 Z"           fill="#e2d6ff" opacity="0.75"/>
-        <!-- Inner shadow -->
-        <path d="M4 26 L28 16 L28 66 Z"          fill="#000"    opacity="0.12"/>
-      </svg>
-      <h2 class="hm-title" id="hm-title">Vaultex</h2>
-      <p class="hm-version">Version 1.0</p>
-    </div>
-
-    <!-- Resource rows panel -->
-    <div class="hm-panel">
-
-      <div class="hm-row">
-        <div class="hm-row-icon"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-</div>
-        <div class="hm-row-body">
-          <div class="hm-row-title">Theme repository</div>
-          <div class="hm-row-desc">View the source code, report issues, and contribute to the theme on GitHub.</div>
-        </div>
-        <a href="https://github.com/rashidmya/vaultex" target="_blank" rel="noopener noreferrer" class="hm-btn hm-btn-accent">Visit</a>
-      </div>
-
-      <div class="hm-row-sep"></div>
-
-      <div class="hm-row">
-        <div class="hm-row-icon"><svg viewBox="0 0 32 32" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="none" d="M16 .011L2.093 8.074v15.995L16 31.996l13.907-8.068V7.939zm6.396 22.806l-1.251.693l-1.249-.693v-5.563h-7.792v5.563l-1.249.693l-1.251-.693V9.188l1.251-.699l1.249.699v5.561h7.792V9.188l1.249-.699l1.251.699z"/></svg>
-</div>
-        <div class="hm-row-body">
-          <div class="hm-row-title">Hexo framework</div>
-          <div class="hm-row-desc">Hexo is a fast, simple, and powerful blog framework that powers this site.</div>
-        </div>
-        <a href="https://hexo.io" target="_blank" rel="noopener noreferrer" class="hm-btn hm-btn-gray">Visit</a>
-      </div>
-
-      <div class="hm-row-sep"></div>
-
-      <div class="hm-row">
-        <div class="hm-row-icon"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"/></svg>
-</div>
-        <div class="hm-row-body">
-          <div class="hm-row-title">Discussions</div>
-          <div class="hm-row-desc">Ask questions, share ideas, and have in-depth discussions about the theme on GitHub.</div>
-        </div>
-        <a href="https://github.com/rashidmya/vaultex/discussions" target="_blank" rel="noopener noreferrer" class="hm-btn hm-btn-gray">Join</a>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-  <div class="qs-backdrop" id="quick-switcher" role="dialog" aria-modal="true" aria-label="Quick switcher">
-  <div class="qs-modal">
-
-    <div class="qs-input-wrap">
-      <input
-        type="text"
-        class="qs-input"
-        id="qs-input"
-        placeholder="Find note..."
-        autocomplete="off"
-        spellcheck="false"
-        aria-label="Search notes"
-        aria-autocomplete="list"
-        aria-controls="qs-results"
-      >
-      <button class="qs-clear-btn" id="qs-clear" aria-label="Clear">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" stroke="none"/><path d="m15 9-6 6" fill="none" style="stroke:var(--bg-primary)"/><path d="m9 9 6 6" fill="none" style="stroke:var(--bg-primary)"/></svg>
-
-      </button>
-    </div>
-
-    <ul class="qs-results" id="qs-results" role="listbox" aria-label="Search results"></ul>
-
-    <div class="qs-footer">
-      <span class="qs-hint"><kbd>↑↓</kbd> to navigate</span>
-      <span class="qs-hint"><kbd><span>↵</span></kbd> to open</span>
-      <span class="qs-hint"><kbd>ctrl <span>↵</span></kbd> to open in new tab</span>
-      <span class="qs-hint"><kbd>esc</kbd> to dismiss</span>
-    </div>
-
-  </div>
-</div>
-
-  <script type="module" src="/english-vocabulary/js/vaultex.js"></script>
-
-
-
-</body>
-</html>
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/english-vocabulary/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/english-vocabulary/"><img src="/english-vocabulary/img/logo.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/english-vocabulary/">Home</a><a class="navbar-item" href="/english-vocabulary/archives">Archives</a><a class="navbar-item" href="/english-vocabulary/categories">Categories</a><a class="navbar-item" href="/english-vocabulary/tags">Tags</a><a class="navbar-item" href="/english-vocabulary/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><h3 class="tag is-primary">April 2026</h3><div class="timeline"><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-05T13:19:52.000Z">2026-04-05</time></p><p class="title"><a href="/english-vocabulary/2026/04/05/Test-New-Post/">Test New Post</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-01T11:11:39.198Z">2026-04-01</time></p><p class="title"><a href="/english-vocabulary/2026/04/01/hello-world/">Hello World</a></p></div></article></div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/english-vocabulary/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/english-vocabulary/archives/"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/english-vocabulary/categories/"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/english-vocabulary/tags/"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="me noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/english-vocabulary/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-05T13:19:52.000Z">2026-04-05</time></p><p class="title"><a href="/english-vocabulary/2026/04/05/Test-New-Post/">Test New Post</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-01T11:11:39.198Z">2026-04-01</time></p><p class="title"><a href="/english-vocabulary/2026/04/01/hello-world/">Hello World</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/english-vocabulary/archives/2026/04/"><span class="level-start"><span class="level-item">April 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/english-vocabulary/"><img src="/english-vocabulary/img/logo.svg" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2026 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/english-vocabulary/js/column.js"></script><script src="/english-vocabulary/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/english-vocabulary/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/english-vocabulary/js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/english-vocabulary/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/english-vocabulary/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/english-vocabulary/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
