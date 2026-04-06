@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2026/04/01/hello-world/</loc>
+    <loc>https://shun-yana-soft-dev.github.io/english-vocabulary/about/index.html</loc>
     
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shun-yana-soft-dev.github.io/english-vocabulary/2026/04/06/Test-New-Post/</loc>
+    
+    <lastmod>2026-04-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -12,7 +21,7 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
+    <loc>https://shun-yana-soft-dev.github.io/english-vocabulary</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
