@@ -9,17 +9,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   <rights>All rights reserved 2026, John Doe</rights>
   <title>Hexo</title>
-  <updated>2026-04-05T13:19:52.530Z</updated>
-  <entry>
-    <author>
-      <name>John Doe</name>
-    </author>
-    <id>http://example.com/2026/04/05/Test-New-Post/</id>
-    <link href="http://example.com/2026/04/05/Test-New-Post/"/>
-    <published>2026-04-05T13:19:52.000Z</published>
-    <title>Test New Post</title>
-    <updated>2026-04-05T13:19:52.530Z</updated>
-  </entry>
+  <updated>2026-04-01T11:11:39.199Z</updated>
   <entry>
     <author>
       <name>John Doe</name>
