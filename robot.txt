@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shun-yana-soft-dev.github.io/english-vocabulary/sitemap.xml
