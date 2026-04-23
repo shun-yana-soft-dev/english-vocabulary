@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shun-yana-soft-dev.github.io/english-vocabulary/2026/04/23/Heavy-rain-and-flooding-at-Michigan-dams/</loc>
+    
+    <lastmod>2026-04-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shun-yana-soft-dev.github.io/english-vocabulary/2026/04/23/Omitting-subjects-and-auxiliary-verbs/</loc>
+    
+    <lastmod>2026-04-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shun-yana-soft-dev.github.io/english-vocabulary/2026/04/10/Tough-movement/</loc>
     
     <lastmod>2026-04-10</lastmod>
@@ -58,7 +76,7 @@
 
   <url>
     <loc>https://shun-yana-soft-dev.github.io/english-vocabulary</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -66,14 +84,14 @@
   
   <url>
     <loc>https://shun-yana-soft-dev.github.io/english-vocabulary/tags/Animal/</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://shun-yana-soft-dev.github.io/english-vocabulary/tags/Harry-Potter/</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -81,15 +99,22 @@
 
   
   <url>
+    <loc>https://shun-yana-soft-dev.github.io/english-vocabulary/categories/natural-disaster/</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://shun-yana-soft-dev.github.io/english-vocabulary/categories/Animal-Movements/</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://shun-yana-soft-dev.github.io/english-vocabulary/categories/Grammar/</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
